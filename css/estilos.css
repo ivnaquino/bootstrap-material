@@ -1,0 +1,17 @@
+body{
+	background: #FFF;
+}
+
+.band_img{
+	border-radius: 50%;
+	height: 40px;
+	width: 40px;
+}
+
+.img_playing{
+	display: block;
+	border-radius: 50%;
+	margin: 0 auto;
+	height: auto;
+	width: 50%;
+}

@@ -1,0 +1,79 @@
+<div class="row">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+		    <div class="panel-body">
+		        <form method="POST" ng-submit="buscar(song_band)">
+		        	<div class="form-group">
+		        		<div class="row">
+		        			<label for="buscar" class="label-control col-xs-2">Buscar: </label>
+		        			<div class="col-xs-8">
+		        				<input type="text" placeholder="Cancion, banda" class="form-control" ng-model="song_band" id="buscar">
+		        			</div>
+		        			<div class="col-xs-2">
+		        				<input type="submit" name="buscar" value="Buscar" class="btn btn-info">
+		        			</div>
+		        		</div>
+		        	</div>
+		        </form>
+		    </div>
+		</div>
+	</div>
+</div>
+
+<div class="row" ng-show=" getJsonString(current_song) != '{}' " id="reproductor_panel">
+	<div class="col-lg-12">
+		<div class="panel panel-default">
+			<div class="panel-body">
+			   <div class="row">
+					<div class="col-xs-4">
+						<img ng-src="{{current_song.band_img}}" alt="" class="img_playing">
+					</div>
+					<div class="col-xs-8">
+						<h4>{{current_song.titulo}}</h4>
+						<h5>{{current_song.band}}</h5>
+						<p>
+							<a ng-href="{{current_song.link}}" class="btn btn-link" target="blank">Ver en Goear</a>
+						</p>
+						<audio controls id="reproductor" src=""></audio>
+					</div>
+			   </div>
+			</div>
+		</div>
+	</div>
+</div>
+
+<div class="row" ng-show="has_searching">
+	<div class="col-lg-12 text-center">
+		<h4>Buscando ....</h4>
+	</div>
+</div>
+
+<div class="row" ng-show=" songs.length > 0 ">
+	<div class="col-lg-12">
+		<table class="table table-hover">
+			<thead>
+				<tr>
+					<th></th>
+					<th>Titulo</th>
+					<th>Banda</th>
+					<th>Duracion</th>
+					<th>Calidad</th>
+					<th>Acciones</th>
+				</tr>
+			</thead>
+			<tbody>
+				<tr ng-repeat="song in songs">
+					<td> <img ng-src="{{song.band_img}}" alt="" class="band_img"> </td>
+					<td> <strong> {{ song.titulo }} </strong> </td>
+					<td> <strong> {{ song.band }} </strong> </td>
+					<td> {{ song.duracion }} </td>
+					<td> {{ song.calidad }} </td>
+					<td>
+						<button class="btn btn-primary" ng-click="play(song)">Play</button>
+						<button class="btn btn-success" ng-click="download(song)">Download</button>
+					</td>
+				</tr>
+			</tbody>
+		</table>
+	</div>
+</div>

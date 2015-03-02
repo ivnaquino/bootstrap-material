@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<meta charset="utf-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<title>MusicApp</title>
+	<link rel="stylesheet" href="components/bootstrap/dist/css/bootstrap.min.css">
+	<link rel="stylesheet" href="components/bootstrap-material-design/dist/css/material-wfont.min.css">
+	<link rel="stylesheet" href="components/bootstrap-material-design/dist/css/material.min.css">
+	<link rel="stylesheet" href="components/bootstrap-material-design/dist/css/ripples.min.css">
+	<link rel="stylesheet" href="css/estilos.css">
+</head>
+<body ng-app="MusicApp">
+
+	<nav class="navbar navbar-default navbar-static-top" role="navigation">
+		<div class="container">
+			<a class="navbar-brand" href="#">MusicApp</a>
+		</div>
+	</nav>
+
+
+	<div class="container">
+		<div ng-view ></div>
+	</div>
+	
+	
+
+
+
+	<script src="components/jquery/dist/jquery.min.js"></script>
+	<script src="components/bootstrap/dist/js/bootstrap.min.js"></script>
+	<script src="components/angular/angular.min.js"></script>
+	<script src="components/angular-route/angular-route.min.js"></script>
+	<script src="components/bootstrap-material-design/dist/js/material.min.js"></script>
+	<script src="components/bootstrap-material-design/dist/js/ripples.min.js"></script>
+
+	<script src="js/services.js"></script>
+	<script src="js/controllers.js"></script>
+	<script src="js/app.js"></script>
+
+	<script>
+		$(function() {
+			$.material.init();
+			$(".shor").noUiSlider({
+				start: 40,
+				connect: "lower",
+				range: {
+					min: 0,
+					max: 100
+				}
+			});
+
+			$(".svert").noUiSlider({
+				orientation: "vertical",
+				start: 40,
+				connect: "lower",
+				range: {
+					min: 0,
+					max: 100
+				}
+			});
+		});
+	</script>
+</body>
+</html>
